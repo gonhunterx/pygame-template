@@ -1,5 +1,7 @@
 import pygame, os, time
 from states.title import Title
+# from gameObjects.chest import Chest 
+
 class Game():
     def __init__(self):
         pygame.init()
@@ -18,6 +20,8 @@ class Game():
         self.state_stack = []
         self.load_assets()
         self.load_states()
+    
+
         
     def game_loop(self):
         while self.playing:
@@ -69,6 +73,7 @@ class Game():
     def update(self):
         # check end of list 
         self.state_stack[-1].update(self.dt, self.actions)
+        
     
     def render(self):
         self.state_stack[-1].render(self.game_canvas)
